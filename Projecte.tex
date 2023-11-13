@@ -1,0 +1,223 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={METAGENOMICS PROJECT},
+  pdfauthor={Daniel Martín, Guillem Miró, Marc Pinós},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{METAGENOMICS PROJECT}
+\author{Daniel Martín, Guillem Miró, Marc Pinós}
+\date{2023-11-13}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\section{INTRODUCTION}\label{introduction}}
+
+Sequencing and metagenomics are biological disciplines that study the
+genetic and epigenetic sequence information of organisms. By sequencing
+their genome they attempt to understand several genetic concepts such
+as, genetic functionality, genotype, phenotype, and inheritance among
+others.
+
+In this project a metagenomic analysis will be performed using an
+initial sequenced data set of an unknown bacterial species as reference.
+By performing an exhaustive methodology latter sequence will be sorted
+out in order to identify its origin and produce several analysis.
+
+\hypertarget{objectives}{%
+\subsection{Objectives}\label{objectives}}
+
+\begin{itemize}
+\tightlist
+\item
+  Perform a metagenomic analysis of the genomic sequence of unknown
+  origin.
+\item
+  Select relevant and higher quality information from the sequence in
+  order to be able to work with it.
+\item
+  Identify the taxonomic classification of the unknown sequence.
+\item
+  Perform functional categories of the genomic protein sequences and
+  analyze a selected category.
+\item
+  Produce a phylogeny of the reference genome and its nearer species.
+\end{itemize}
+
+\hypertarget{methods}{%
+\section{METHODS}\label{methods}}
+
+\hypertarget{practical-4-assembly-of-a-bacterial-genome}{%
+\subsection{Practical 4: Assembly of a bacterial
+genome}\label{practical-4-assembly-of-a-bacterial-genome}}
+
+Raw sequence data will be assembled and analyzed so as to purge for a
+higher quality sample. In our particular case, sequencing data is
+composed in a FASTQ format, which provides the sequence itself and its
+quality information.
+
+\hypertarget{read-quality-control}{%
+\subsubsection{1. Read Quality Control}\label{read-quality-control}}
+
+The sequence data will be analyzed by \emph{Assess Read Quality with
+FastQC} so as to make en exhaustive report of the reads' quality. This
+will enable the detection of possible noise, unwanted/impure fragments,
+sequencing mistakes, and base distribution rates.
+
+**Parameters:* - Basic Statistics - Per base sequence quality - Per tile
+sequence quality - Per sequence quality scores - Per base sequence
+content - Per sequence GC content - Per base N content - Sequence length
+distribution - Sequence duplication levels
+
+\hypertarget{trimming}{%
+\subsubsection{2. Trimming}\label{trimming}}
+
+Once all impure fragments are detected in the reads, trimming will be
+performed. By using \emph{Trim Reads with Trimmomatic} an input read
+will be cut following a base pair (bp) threshold. For instance, starting
+and end point can be stipulated by selecting crop reads, which selects
+the number of bp to keep from start of the read.
+
+The program will produce a new file which will correspond to the new
+sequence already trimmed.
+
+\hypertarget{read-quality-control-1}{%
+\subsubsection{3. Read Quality Control}\label{read-quality-control-1}}
+
+The trimmed sequence will be assessed a new quality control (using
+\emph{Assess Read Quality with FastQC} again) so as to identify all the
+compensations of quality compared to the raw analysis.
+
+If all the previously-identified mistakes are compensated by the
+trimming, the analysis will be continued.
+
+\hypertarget{assemble-read}{%
+\subsubsection{4. Assemble Read}\label{assemble-read}}
+
+All the reads will be stored into continuous sequences. In our case,
+\emph{MEGAHIT} will be used. Compared to other softwares it is believed
+to be faster. All the reads will be conjugated to create long DNA
+fragments, known as \emph{contigs} (assemble continuous genome
+fragments).
+
+\hypertarget{binning}{%
+\subsubsection{5. Binning}\label{binning}}
+
+Previous \emph{contigs} will be grouped in several \emph{bins}. The term
+bin corresponds to a putative population genomes created by a selection
+of properties, such as codon usage, genome related statistics, GC
+proportion, read length, among other parameters. The analysis will be
+performed using \emph{MaxBin2}.
+
+\hypertarget{bin-quality-control}{%
+\subsubsection{6. Bin quality control}\label{bin-quality-control}}
+
+Finally, all bins created will be processed under a quality control. It
+will provide an estimate of genome completeness and contamination by
+plotting each bin compared to its expected distribution of a typical
+genome. \emph{CheckM} will be used to perform the control.
+
+\emph{In particular, we will look for high quality genomes, which
+correspond to \textgreater90\% completeness and \textless5\% of
+contamination.}
+
+\hypertarget{practical-5}{%
+\subsection{Practical 5}\label{practical-5}}
+
+\hypertarget{practical-6}{%
+\subsection{Practical 6}\label{practical-6}}
+
+\hypertarget{practical-7}{%
+\subsection{Practical 7}\label{practical-7}}
+
+\hypertarget{practical-8}{%
+\subsection{Practical 8}\label{practical-8}}
+
+\hypertarget{results-and-discussion}{%
+\section{RESULTS AND DISCUSSION}\label{results-and-discussion}}
+
+\hypertarget{practical-4}{%
+\subsection{Practical 4}\label{practical-4}}
+
+\hypertarget{practical-5-1}{%
+\subsection{Practical 5}\label{practical-5-1}}
+
+\hypertarget{practical-6-1}{%
+\subsection{Practical 6}\label{practical-6-1}}
+
+\hypertarget{practical-7-1}{%
+\subsection{Practical 7}\label{practical-7-1}}
+
+\hypertarget{practical-8-1}{%
+\subsection{Practical 8}\label{practical-8-1}}
+
+\hypertarget{conclusions}{%
+\section{CONCLUSIONS}\label{conclusions}}
+
+\hypertarget{references}{%
+\section{REFERENCES}\label{references}}
+
+\end{document}
