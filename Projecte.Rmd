@@ -1,0 +1,43 @@
+---
+title: "METAGENOMICS PROJECT"
+author: "Daniel Martín, Guillem Miró, Marc Pinós"
+date: "2023-11-13"
+output: pdf_document
+---
+
+
+# INTRODUCTION
+Sequencing and metagenomics are biological disciplines that study the genetic and epigenetic sequence information of organisms. By sequencing their genome they attempt to understand several genetic concepts such as, genetic functionality, genotype, phenotype, and inheritance among others.  
+
+
+In this project a metagenomic analysis will be performed using an initial sequenced data set of an unknown bacterial species as reference. By performing an exhaustive methodology such sequence will be sorted out in order to identify its origin and produce several analysis in it. 
+
+
+## Objectives
+- Perform a metagenomic analysis of the genomic sequence.
+- Select relevant and higher quality information from the sequence in order to be able to work with it. 
+- Identify the taxonomic classification of the unknown sequence.
+- Perform functional categories of the genomic protein sequences and analyze a selected category.
+- Produce a phylogeny of the reference genome and its nearer species. 
+
+
+# METHODS
+
+## Practical 4
+## Practical 5
+## Practical 6
+## Practical 7
+## Practical 8
+
+
+# RESULTS AND DISCUSSION
+
+## Practical 4
+## Practical 5
+## Practical 6
+## Practical 7
+## Practical 8
+
+# CONCLUSIONS
+
+# REFERENCES
