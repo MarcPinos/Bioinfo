@@ -28,7 +28,7 @@ out in order to identify its origin and produce several analysis.
 -   To select relevant and higher quality information from the sequence
     in order to properly work with it.
 -   To identify the taxonomic classification of the unknown sequence.
--   To infere functional categories of the genomic protein sequences and
+-   To infer functional categories of the genomic protein sequences and
     analyze a selected category.
 -   To produce a phylogeny of the reference genome and its nearer
     species.
@@ -49,10 +49,17 @@ so as to make en exhaustive report of the reads' quality. This will
 enable the detection of possible noise, unwanted/impure fragments,
 sequencing mistakes, and base distribution rates.
 
-\*\*Parameters:\* - Basic Statistics - Per base sequence quality - Per
-tile sequence quality - Per sequence quality scores - Per base sequence
-content - Per sequence GC content - Per base N content - Sequence length
-distribution - Sequence duplication levels
+*Parameters:*
+
+-   Basic Statistics
+-   Per base sequence quality
+-   Per tile sequence quality
+-   Per sequence quality scores
+-   Per base sequence content
+-   Per sequence GC content
+-   Per base N content
+-   Sequence length distribution
+-   Sequence duplication levels
 
 ### 2. Trimming
 
@@ -99,7 +106,60 @@ genome. *CheckM* will be used to perform the control.
 *In particular, we will look for high quality genomes, which correspond
 to \>90% completeness and \<5% of contamination.*
 
-## Practical 5
+## Practical 5: Bacterial genome identification
+
+Once all quality reads are selected, the analysis must begin. In
+particular a taxonomic identification of out unknown sample will be
+performed.
+
+In the case of bacteria, as they do not reproduce sexually, species
+classification is induced by the computation of ANI (average nucleotide
+identity). Bacteria are known to exchange core genes between mainly same
+species, and being unusual (or at least more difficult) to pass to
+different ones. Therefore, computing percentage of identity between a
+reference species and the sample will enable an identity classification:
+
+gANI:
+
+-   95% same species
+
+-   85% same genus
+
+-   70% same family
+
+### 1. Genome annotation
+
+The higher quality bin from practical 4 will be selected to perform the
+analysis. *PROKKA* software will be used to annotate the sample genome
+(placed in the bin) in order to identify several pieces or regions prone
+to be compared.
+
+### 2. Genome set
+
+Selecting latter annotated genome, we will create a genome set, enabilg
+a further research with the sample.
+
+### 3. Microbe classification
+
+The genome set will be taxonomically classified using *GTDB*. As an
+output a taxonomical tree will promote the identification of the
+bacterial sepecies present in our sample.
+
+### 4. GTDB: genome taxonomy data base
+
+[GTDB](https://gtdb.ecogenomic.org/) will be used to download the
+*Genebank assembly accession* of out bacteria and acquire a FASTA
+reference sequence.
+
+### 5. ANI computation
+
+Latter FASTA sequence (type strain genome) and the annotated genome
+(Meta genome assembled genome) from step 1 will be compared using
+*FastANI*, which will compute the ANI.
+
+In particular, an accurate ANI will be estimated by the comparison of
+nucleotide of orthologous gene pairs shared between the 2 sequences
+given.
 
 ## Practical 6
 
