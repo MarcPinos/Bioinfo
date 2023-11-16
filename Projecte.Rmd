@@ -43,6 +43,7 @@ composed in a FASTQ format, which provides the sequence itself and its
 quality information.
 
 ### 1. Read Quality Control
+
 The sequence data will be analyzed by *Assess Read Quality with FastQC*
 so as to make en exhaustive report of the reads' quality. This will
 enable the detection of possible noise, unwanted/impure fragments,
@@ -61,6 +62,7 @@ sequencing mistakes, and base distribution rates.
 -   Sequence duplication levels
 
 ### 2. Trimming
+
 Once all impure fragments are detected in the reads, trimming will be
 performed. By using *Trim Reads with Trimmomatic* an input read will be
 cut following a base pair (bp) threshold. For instance, starting and end
@@ -71,6 +73,7 @@ The program will produce a new file which will correspond to the new
 sequence already trimmed.
 
 ### 3. Read Quality Control
+
 The trimmed sequence will be assessed a new quality control (using
 *Assess Read Quality with FastQC* again) so as to identify all the
 compensations of quality compared to the raw analysis.
@@ -79,12 +82,14 @@ If all the previously-identified mistakes are compensated by the
 trimming, the analysis will be continued.
 
 ### 4. Assemble Read
+
 All the reads will be stored into continuous sequences. In our case,
 *MEGAHIT* will be used. Compared to other softwares it is believed to be
 faster. All the reads will be conjugated to create long DNA fragments,
 known as *contigs* (assemble continuous genome fragments).
 
 ### 5. Binning
+
 Previous *contigs* will be grouped in several *bins*. The term bin
 corresponds to a putative population genomes created by a selection of
 properties, such as codon usage, genome related statistics, GC
@@ -92,6 +97,7 @@ proportion, read length, among other parameters. The analysis will be
 performed using *MaxBin2*.
 
 ### 6. Bin quality control
+
 Finally, all bins created will be processed under a quality control. It
 will provide an estimate of genome completeness and contamination by
 plotting each bin compared to its expected distribution of a typical
@@ -122,26 +128,31 @@ gANI:
 -   70% same family
 
 ### 1. Genome annotation
+
 The higher quality bin from practical 4 will be selected to perform the
 analysis. *PROKKA* software will be used to annotate the sample genome
 (placed in the bin) in order to identify several pieces or regions prone
 to be compared.
 
 ### 2. Genome set
+
 Selecting latter annotated genome, we will create a genome set, enabilg
 a further research with the sample.
 
 ### 3. Microbe classification
+
 The genome set will be taxonomically classified using *GTDB*. As an
 output a taxonomical tree will promote the identification of the
 bacterial sepecies present in our sample.
 
 ### 4. GTDB: genome taxonomy data base
+
 [GTDB](https://gtdb.ecogenomic.org/) will be used to download the
 *Genebank assembly accession* of out bacteria and acquire a FASTA
 reference sequence.
 
 ### 5. ANI computation
+
 Latter FASTA sequence (type strain genome) and the annotated genome
 (Meta genome assembled genome) from step 1 will be compared using
 *FastANI*, which will compute the ANI.
@@ -151,29 +162,46 @@ nucleotide of orthologous gene pairs shared between the 2 sequences
 given.
 
 ## Practical 6: Genome annotation I
-In practical 6 we will proceed with the genome annotation of both sample and refernce genome. 
+
+In practical 6 we will proceed with the genome annotation of both sample
+and refernce genome.
 
 ### 1. Reference genome annotation
-Following last practical's procedure, the genome extracted from [GTDB](https://gtdb.ecogenomic.org/) will be also annotated.
+
+Following last practical's procedure, the genome extracted from
+[GTDB](https://gtdb.ecogenomic.org/) will be also annotated.
 
 ### 2. Data exploration and functional categories
- By selecting the annotated sample, we will select the binocular option in order to explore all data gathered. 
 
-Thanks to _PROKKA annotation pipeline_ we will be able to acknowledge provenance, linked samples, genome overview, taxonomy, publications, and assembly and annotation from our sample. The latter category will be selected to find the functional categories encoded in our genome, which corresponds to a set of proteins prone to be expressed by our bacterial specimen. 
+By selecting the annotated sample, we will select the binocular option
+in order to explore all data gathered.
 
-The functional categories will be compared to the reference genome estracted from [GTDB](https://gtdb.ecogenomic.org/).
+Thanks to *PROKKA annotation pipeline* we will be able to acknowledge
+provenance, linked samples, genome overview, taxonomy, publications, and
+assembly and annotation from our sample. The latter category will be
+selected to find the functional categories encoded in our genome, which
+corresponds to a set of proteins prone to be expressed by our bacterial
+specimen.
 
-Afterwards, we will download a GFF (_gene feature format_) and a FASTA files to work on both genomes. A specific functional category will be selected and we will compute:
+The functional categories will be compared to the reference genome
+estracted from [GTDB](https://gtdb.ecogenomic.org/).
 
-- The number of tRNAs of our sample.
-- The number of rRNAs of our sample.
-- The number of genes encoding proteins without known function.
+Afterwards, we will download a GFF (*gene feature format*) and a FASTA
+files to work on both genomes. A specific functional category will be
+selected and we will compute:
 
-Finally, using _RStudio_ we will create a barplot of the types of genes found in our MAG and our genome of reference (type strain). 
+-   The number of tRNAs of our sample.
+-   The number of rRNAs of our sample.
+-   The number of genes encoding proteins without known function.
 
+Finally, using *RStudio* we will create a barplot of the types of genes
+found in our MAG and our genome of reference (type strain).
 
 ## Practical 7: Genome annotation II
-Genome annotation will be carried on. Having previously selected a functional category of our genome both nucleotide and amino acid sequence will be studied.
+
+Genome annotation will be carried on. Having previously selected a
+functional category of our genome both nucleotide and amino acid
+sequence will be studied.
 
 ### 1. Multiple sequence alignment
 
@@ -185,14 +213,118 @@ Genome annotation will be carried on. Having previously selected a functional ca
 
 ## Practical 4
 
-The second quality control were assessed and showed a high quality score
-in all base pair position of all short reads, even in the head and tail
-fragments of each read. The result is shown in Figure XXX. REMARCAR QUE
-NO HACEMOS TRIMMING.
+Upon acquiring the raw data for analysis, we conducted a thorough
+quality control assessment of all base pair positions within the short
+reads. Remarkably, we observed consistently high-quality scores across
+the entire span of the reads, including both head and tail fragments as
+depicted in *Figure 1*. Consequently, a decision was made to forgo
+Trimming procedures, aiming to preserve information from the extremities
+of the short reads.
+
+Following genome assembly, seven distinct bins were generated (*Figure
+2*). Notably, bins 01, 03, and 04 exhibited completeness levels nearing
+maximum values, approximating 100%. This indicates the presence of all
+anticipated genes within the Metagenome-Assembled Genomes (MAGs).
+Additionally, these bins demonstrated a contamination level below 1%,
+affirming the appropriateness of the assembly process due to the initial
+high-quality short reads, enabling seamless assembly (*Figure 3*). Thus,
+bins 01, 03, and 04 can be considered of high quality, attaining \>50%
+completeness and \<5% contamination.
+
+Upon analyzing the distribution of the short reads utilized for MAG
+assembly, it was observed that these ranged between 145-152 base pairs,
+slightly longer than the optimal size for assembly. Furthermore,
+approximately 5% of the sequences were identified as being repeated more
+than 10 times. Considering these findings, the GC content of our MAG
+might slightly deviate from the theoretical distribution (*Figure 4*).
 
 ## Practical 5
 
+We opted to focus on bin03 due to its exceptional completeness level
+(100%) and minimal contamination (0.91%). Following the annotation of
+our MAG and subsequent genome set generation, we employed GTDB
+classification to determine the bacterial strain origin of this genome.
+The outcomes are presented in *Figure 5*, indicating a match between
+bin03 and *Bifidobacterium dentium* with an Average Nucleotide Identity
+(ANI) score of 98.73, as illustrated in the phylogenetic tree displayed
+in *Figure 6*.
+
+Subsequently, after obtaining the reference genome for *B. dentium*, we
+conducted a comparative analysis with our MAG, computing the nucleotide
+identity between both sequences. This assessment yielded an ANI distance
+estimate of 98.72% (*Figure 7*), indicating a similarity of 98.72% in
+nucleotide composition between the sequences. The comparison details can
+be visualized in *Figure 8*.
+
 ## Practical 6
+
+If we compare the number of features of each genome (Bin03 and
+reference) we have found 2216 in our genome in comparison to 2137 of the
+reference genome. From these features, the functional categories
+codified in both genomes are shown in *Figure 9*. We can see that more
+or less in both genomes we find the same genes in each category in
+exeption of: a) Stress response, b) Cell wall and capsule, c) RNA
+metabolism, d) Membrane transport and e) DNA metabolism.
+
+On the other hand, it is necessary to find how many tRNA's, rRNA's and
+hypothetical coding genes are found in our MAG and in the reference.
+
+Upon comparing the number of features present in each genome (Bin03 and
+the reference), we identified 2216 features in our genome compared to
+2137 in the reference genome. Among these features, the functional
+categories encoded in both genomes are illustrated in *Figure 9*. It is
+apparent that both genomes harbor similar genes within each category,
+except for: a) Stress response, b) Cell wall and capsule, c) RNA
+metabolism, d) Membrane transport, and e) DNA metabolism.
+
+Additionally, it is pertinent to ascertain the counts of tRNAs, rRNAs,
+and hypothetical coding genes present in our MAG compared to the
+reference.
+
+```{r MAG, include=FALSE}
+install.packages("ape")
+library("ape")
+
+install.packages("ggplot2")
+library("ggplot2")
+
+MAG_annotated <-read.delim("MAG.gff", header=F, comment.char="#") 
+MAG_annotated.CDS <- MAG_annotated_ref[MAG_annotated_ref[,3]=="CDS",]
+
+CDSinfo <- MAG_annotated.CDS[,9]
+
+rRNA <- CDSinfo[grep("rRNA",CDSinfo)]
+tRNA <- CDSinfo[grep("tRNA",CDSinfo)]                            
+hypothetical <- CDSinfo[grep("hypothetical",CDSinfo)]
+
+gene_type_table <- data.frame(c("rRNA","tRNA","hypothetical","other_function"),
+                                  c(length(rRNA),length(tRNA),length(hypothetical),length(CDSinfo)-length(rRNA)-length(tRNA)-length(hypothetical)))
+colnames(gene_type_table) = c("Class","Number")
+
+ggplot(gene_type_table, aes(x=Class, y=Number,fill=Class)) + 
+  geom_bar(stat = "identity") 
+
+```
+
+```{r Ref, include=FALSE}
+REF_annotated <-read.delim("Reference.gff", header=F, comment.char="#") 
+REF_annotated.CDS <- MAG_annotated_ref[MAG_annotated_ref[,3]=="CDS",]
+
+CDSinfo <- REF_annotated.CDS[,9]
+
+rRNA <- CDSinfo[grep("rRNA",CDSinfo)]
+tRNA <- CDSinfo[grep("tRNA",CDSinfo)]                            
+hypothetical <- CDSinfo[grep("hypothetical",CDSinfo)]
+
+gene_type_table <- data.frame(c("rRNA","tRNA","hypothetical","other_function"),
+                                  c(length(rRNA),length(tRNA),length(hypothetical),length(CDSinfo)-length(rRNA)-length(tRNA)-length(hypothetical)))
+colnames(gene_type_table) = c("Class","Number")
+
+ggplot(gene_type_table, aes(x=Class, y=Number,fill=Class)) + 
+  geom_bar(stat = "identity") 
+```
+
+FALTA VEURE PERQUE NO FUNCIONA LOS GRAFICS I POSAR ELS RESULTATS
 
 ## Practical 7
 
