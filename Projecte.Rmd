@@ -2,7 +2,7 @@
 title: "METAGENOMICS PROJECT"
 author: "Daniel Martín, Guillem Miró, Marc Pinós"
 date: "2023-11-13"
-output: pdf_document
+output: "pdf_document"
 editor_options: 
   markdown: 
     wrap: 72
@@ -237,16 +237,25 @@ of the short reads.
 knitr::include_graphics(here::here("Quality_check_reads_Pr4.png"))
 ```
 
-
 Following genome assembly, seven distinct bins were generated (*Figure
 2*). Notably, bins 01, 03, and 04 exhibited completeness levels nearing
 maximum values, approximating 100%. This indicates the presence of all
 anticipated genes within the Metagenome-Assembled Genomes (MAGs).
+
+```{r Figure 2, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "Bins completeness and contamination"}
+knitr::include_graphics(here::here("output_bins_Pr4.png"))
+```
+
+
 Additionally, these bins demonstrated a contamination level below 1%,
 affirming the appropriateness of the assembly process due to the initial
 high-quality short reads, enabling seamless assembly (*Figure 3*). Thus,
 bins 01, 03, and 04 can be considered of high quality, attaining \>50%
 completeness and \<5% contamination.
+
+```{r Figure 3, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "Bins completeness and contamination"}
+knitr::include_graphics(here::here("completness_contamination_bins_Pr4.png"))
+```
 
 Upon analyzing the distribution of the short reads utilized for MAG
 assembly, it was observed that these ranged between 145-152 base pairs,
@@ -254,6 +263,11 @@ slightly longer than the optimal size for assembly. Furthermore,
 approximately 5% of the sequences were identified as being repeated more
 than 10 times. Considering these findings, the GC content of our MAG
 might slightly deviate from the theoretical distribution (*Figure 4*).
+
+```{r Figure 4, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "GC content in Bin 3"}
+knitr::include_graphics(here::here("GC_content_Pr4.png"))
+```
+
 
 ## Practical 5
 
@@ -266,6 +280,14 @@ bin03 and *Bifidobacterium dentium* with an Average Nucleotide Identity
 (ANI) score of 98.73, as illustrated in the phylogenetic tree displayed
 in *Figure 6*.
 
+```{r Figure 5, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "Bacterial Taxonomy"}
+knitr::include_graphics(here::here("especie_que_correspon_pr5.png"))
+```
+
+```{r Figure 6, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "Taxonomy tree"}
+knitr::include_graphics(here::here("arbre_detallat_rodonet_pr5.png"))
+```
+
 Subsequently, after obtaining the reference genome for *B. dentium*, we
 conducted a comparative analysis with our MAG, computing the nucleotide
 identity between both sequences. This assessment yielded an ANI distance
@@ -273,12 +295,23 @@ estimate of 98.72% (*Figure 7*), indicating a similarity of 98.72% in
 nucleotide composition between the sequences. The comparison details can
 be visualized in *Figure 8*.
 
+```{r Figure 7, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "ANI estimation"}
+knitr::include_graphics(here::here("ANI_estimate_ambos_pr5.png"))
+```
+
+```{r Figure 8, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "fastANI representation"}
+knitr::include_graphics(here::here("rallas_rojas_raras_arribaRef.png"))
+```
+
+
+
+
 ## Practical 6
 
 If we compare the number of features of each genome (Bin03 and
 reference) we have found 2216 in our genome in comparison to 2137 of the
 reference genome. From these features, the functional categories
-codified in both genomes are shown in *Figure 9*. We can see that more
+codified in both genomes are shown in *Figure 9* and *Figure 10*. We can see that more
 or less in both genomes we find the same genes in each category in
 exeption of: a) Stress response, b) Cell wall and capsule, c) RNA
 metabolism, d) Membrane transport and e) DNA metabolism.
@@ -286,21 +319,7 @@ metabolism, d) Membrane transport and e) DNA metabolism.
 On the other hand, it is necessary to find how many tRNA's, rRNA's and
 hypothetical coding genes are found in our MAG and in the reference.
 
-Upon comparing the number of features present in each genome (Bin03 and
-the reference), we identified 2216 features in our genome compared to
-2137 in the reference genome. Among these features, the functional
-categories encoded in both genomes are illustrated in *Figure 9*. It is
-apparent that both genomes harbor similar genes within each category,
-except for: a) Stress response, b) Cell wall and capsule, c) RNA
-metabolism, d) Membrane transport, and e) DNA metabolism.
-
-Additionally, it is pertinent to ascertain the counts of tRNAs, rRNAs,
-and hypothetical coding genes present in our MAG compared to the
-reference.
-
-
-
-```{r MAG,  echo=FALSE, fig.align = 'center', out.width = "50%", fig.show='hold', fig.cap = "MAG graphic"}
+```{r MAG,  echo=FALSE, fig.align = 'center', out.width = "50%", fig.cap = "MAG graphic"}
 library("ape")
 library("ggplot2")
 
@@ -321,9 +340,7 @@ ggplot(gene_type_table, aes(x=Class, y=Number,fill=Class)) +
   geom_bar(stat = "identity") 
 ```
 
-
-
-```{r Ref, echo=FALSE, fig.align = 'center', out.width = "50%", fig.show='hold', fig.cap = "Reference Graphic"}
+```{r Ref, echo=FALSE, fig.align = 'center', out.width = "50%", fig.cap = "Reference Graphic"}
 library("ape")
 library("ggplot2")
 
@@ -343,7 +360,6 @@ colnames(gene_type_table) = c("Class","Number")
 ggplot(gene_type_table, aes(x=Class, y=Number,fill=Class)) + 
   geom_bar(stat = "identity") 
 ```
-
 
 ## Practical 7
 
