@@ -199,10 +199,6 @@ found in our MAG and our genome of reference (type strain).
 
 ## Practical 7: Genome annotation II
 
-Genome annotation will be carried on. Having previously selected a
-functional category of our genome both nucleotide and amino acid
-sequence will be studied.
-
 ### 1. Multiple sequence alignment
 
 Both nucleotide and amino acid sequences from our MAG and the selected
@@ -236,6 +232,11 @@ the entire span of the reads, including both head and tail fragments as
 depicted in *Figure 1*. Consequently, a decision was made to forgo
 Trimming procedures, aiming to preserve information from the extremities
 of the short reads.
+
+```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "Quality check reads"}
+knitr::include_graphics(here::here("Quality_check_reads_Pr4.png"))
+```
+
 
 Following genome assembly, seven distinct bins were generated (*Figure
 2*). Notably, bins 01, 03, and 04 exhibited completeness levels nearing
@@ -297,15 +298,14 @@ Additionally, it is pertinent to ascertain the counts of tRNAs, rRNAs,
 and hypothetical coding genes present in our MAG compared to the
 reference.
 
-```{r MAG, include=FALSE}
-install.packages("ape")
-library("ape")
 
-install.packages("ggplot2")
+
+```{r MAG,  echo=FALSE, fig.align = 'center', out.width = "50%", fig.show='hold', fig.cap = "MAG graphic"}
+library("ape")
 library("ggplot2")
 
 MAG_annotated <-read.delim("MAG.gff", header=F, comment.char="#") 
-MAG_annotated.CDS <- MAG_annotated_ref[MAG_annotated_ref[,3]=="CDS",]
+MAG_annotated.CDS <- MAG_annotated[MAG_annotated[,3]=="CDS",]
 
 CDSinfo <- MAG_annotated.CDS[,9]
 
@@ -319,12 +319,16 @@ colnames(gene_type_table) = c("Class","Number")
 
 ggplot(gene_type_table, aes(x=Class, y=Number,fill=Class)) + 
   geom_bar(stat = "identity") 
-
 ```
 
-```{r Ref, include=FALSE}
+
+
+```{r Ref, echo=FALSE, fig.align = 'center', out.width = "50%", fig.show='hold', fig.cap = "Reference Graphic"}
+library("ape")
+library("ggplot2")
+
 REF_annotated <-read.delim("Reference.gff", header=F, comment.char="#") 
-REF_annotated.CDS <- MAG_annotated_ref[MAG_annotated_ref[,3]=="CDS",]
+REF_annotated.CDS <- REF_annotated[REF_annotated[,3]=="CDS",]
 
 CDSinfo <- REF_annotated.CDS[,9]
 
@@ -340,7 +344,6 @@ ggplot(gene_type_table, aes(x=Class, y=Number,fill=Class)) +
   geom_bar(stat = "identity") 
 ```
 
-FALTA VEURE PERQUE NO FUNCIONA LOS GRAFICS I POSAR ELS RESULTATS
 
 ## Practical 7
 
