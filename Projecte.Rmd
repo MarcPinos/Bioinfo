@@ -35,7 +35,7 @@ out in order to identify its origin and produce several analysis.
 
 # METHODS
 
-## Practical 4: Assembly of a bacterial genome
+## [Practical 4: Assembly of a bacterial genome]{.underline}
 
 Raw sequence data will be assembled and analyzed so as to purge for a
 higher quality sample. In our particular case, sequencing data is
@@ -106,7 +106,7 @@ genome. *CheckM* will be used to perform the control.
 *In particular, we will look for high quality genomes, which correspond
 to \>90% completeness and \<5% of contamination.*
 
-## Practical 5: Bacterial genome identification
+## [Practical 5: Bacterial genome identification]{.underline}
 
 Once all quality reads are selected, the analysis must begin. In
 particular, a taxonomic identification of out unknown sample will be
@@ -116,16 +116,11 @@ In the case of bacteria, as they do not reproduce sexually, species
 classification is induced by the computation of ANI (average nucleotide
 identity). Bacteria are known to exchange core genes between mainly same
 species, and being unusual (or at least more difficult) to pass to
-different ones. Therefore, computing percentage of identity between a
-reference species and the sample will enable an identity classification:
+different ones.
 
-gANI:
-
--   95% same species
-
--   85% same genus
-
--   70% same family
+Therefore, computing percentage of identity between a reference species
+and the sample will enable an identity classification by gANI
+percentage: a) 95% same species; b) 85% same genus; c) 70% same family.
 
 ### 1. Genome annotation
 
@@ -161,7 +156,7 @@ In particular, an accurate ANI will be estimated by the comparison of
 nucleotide of orthologous gene pairs shared between the 2 sequences
 given.
 
-## Practical 6: Genome annotation I
+## [Practical 6: Genome annotation I]{.underline}
 
 In practical 6 we will proceed with the genome annotation of both sample
 and refernce genome.
@@ -197,7 +192,7 @@ selected and we will compute:
 Finally, using *RStudio* we will create a barplot of the types of genes
 found in our MAG and our genome of reference (type strain).
 
-## Practical 7: Genome annotation II
+## [Practical 7: Genome annotation II]{.underline}
 
 ### 1. Multiple sequence alignment
 
@@ -223,7 +218,7 @@ NO ENTENC LO DE LA ÚLTIMA PART DE LES SCORING MATRIX
 
 # RESULTS AND DISCUSSION
 
-## Practical 4
+## [Practical 4]{.underline}
 
 Upon acquiring the raw data for analysis, we conducted a thorough
 quality control assessment of all base pair positions within the short
@@ -246,7 +241,6 @@ anticipated genes within the Metagenome-Assembled Genomes (MAGs).
 knitr::include_graphics(here::here("output_bins_Pr4.png"))
 ```
 
-
 Additionally, these bins demonstrated a contamination level below 1%,
 affirming the appropriateness of the assembly process due to the initial
 high-quality short reads, enabling seamless assembly (*Figure 3*). Thus,
@@ -268,8 +262,7 @@ might slightly deviate from the theoretical distribution (*Figure 4*).
 knitr::include_graphics(here::here("GC_content_Pr4.png"))
 ```
 
-
-## Practical 5
+## [Practical 5]{.underline}
 
 We opted to focus on bin03 due to its exceptional completeness level
 (100%) and minimal contamination (0.91%). Following the annotation of
@@ -278,7 +271,8 @@ classification to determine the bacterial strain origin of this genome.
 The outcomes are presented in *Figure 5*, indicating a match between
 bin03 and *Bifidobacterium dentium* with an Average Nucleotide Identity
 (ANI) score of 98.73, as illustrated in the phylogenetic tree displayed
-in *Figure 6*.
+in *Figure 6*. With a gANI value higher than 95%, we can infer that our
+MAG originates from *Bifidobacterium dentium*.
 
 ```{r Figure 5, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "Bacterial Taxonomy"}
 knitr::include_graphics(here::here("especie_que_correspon_pr5.png"))
@@ -303,21 +297,21 @@ knitr::include_graphics(here::here("ANI_estimate_ambos_pr5.png"))
 knitr::include_graphics(here::here("rallas_rojas_raras_arribaRef.png"))
 ```
 
+## [Practical 6]{.underline}
 
+Upon comparing the feature counts between our genome (Bin03) and the
+reference genome, we observed 2216 features in our genome as opposed to
+2137 in the reference genome. Among these features, the functional
+categories encoded in both genomes are depicted in *Figure* *9* and
+*Figure 10*. Notably, both genomes exhibit similar genes in most
+categories, except for: a) Stress response, b) Cell wall and capsule, c)
+RNA metabolism, d) Membrane transport, and e) DNA metabolism.
 
-
-## Practical 6
-
-If we compare the number of features of each genome (Bin03 and
-reference) we have found 2216 in our genome in comparison to 2137 of the
-reference genome. From these features, the functional categories
-codified in both genomes are shown in *Figure 9* and *Figure 10*. We can see that more
-or less in both genomes we find the same genes in each category in
-exeption of: a) Stress response, b) Cell wall and capsule, c) RNA
-metabolism, d) Membrane transport and e) DNA metabolism.
-
-On the other hand, it is necessary to find how many tRNA's, rRNA's and
-hypothetical coding genes are found in our MAG and in the reference.
+Additionally, it is pertinent to ascertain the counts of tRNAs, rRNAs,
+and hypothetical coding genes present in our MAG compared to the
+reference. In our sample, the count stands at 46 for rRNAs, 6 for tRNAs,
+and 1059 for putative coding genes. These counts are contrasted with
+those of the reference in *Figure 11*.
 
 ```{r MAG,  echo=FALSE, fig.align = 'center', out.width = "50%", fig.cap = "MAG graphic"}
 library("ape")
@@ -361,9 +355,44 @@ ggplot(gene_type_table, aes(x=Class, y=Number,fill=Class)) +
   geom_bar(stat = "identity") 
 ```
 
-## Practical 7
+## [Practical 7]{.underline}
 
-## Practical 8
+The gene selected for alignment with the reference genome is categorized
+within the "Clustering-based subsystems" gene group, known for its
+involvement in Bacterial Cell Division. This gene group encompasses a
+total of 5 coding genes in both our MAG and the reference genome. More
+precisely, the gene IGLBDLCO_01642 found in the MAG and PKGELIAN_01503
+identified in the reference genome share a sequence length of 963 base
+pairs (bp). This sequence encodes a protein comprising 320 aminoacids,
+known as the Cell division protein FtsQ.
+
+The multiple nucleotide sequence alignment between the MAG and the
+reference genome is depicted in Figure 12, revealing 9 mismatches across
+the 963 bp sequence length. These mismatches are visually highlighted in
+Figure 13, displaying a gap in the consensus sequence (black box).
+Notably, the multiple aminoacid alignment sequences is showcased in
+Figure 14 and more explicitly in Figure 15. Among the 9 previous
+mismatches, it's evident that only 2 involve a non-synonymous mutation
+in our MAG when compared to the reference:
+
+-   I73V:
+
+-   P249S:
+
+Finally, we conducted a pairwise nucleotide sequence alignment (not
+depicted) using the following values: match = 2, mismatch = -1 and gap =
+-2. This analysis yielded a score of 1899. Considering the sequence
+length of 963 nucleotides (nt), the maximum attainable score would be
+1926 if all nucleotides were identical. Additionally, we performed a
+pairwise aminoacid sequence alignment using the PAM method (suitable for
+closely related protein sequences), resulting in a score of 1993.
+
+Based on these findings, it can be inferred that our MAG sequence
+encoding the FtsQ protein closely resembles the reference sequence. This
+suggests that our sample likely originates from *Bifidobacterium*
+*dentium* or a microorganism sharing a similar FtsQ protein sequence.
+
+## [Practical 8]{.underline}
 
 # CONCLUSIONS
 
