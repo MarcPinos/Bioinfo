@@ -109,7 +109,7 @@ to \>90% completeness and \<5% of contamination.*
 ## Practical 5: Bacterial genome identification
 
 Once all quality reads are selected, the analysis must begin. In
-particular a taxonomic identification of out unknown sample will be
+particular, a taxonomic identification of out unknown sample will be
 performed.
 
 In the case of bacteria, as they do not reproduce sexually, species
@@ -205,7 +205,23 @@ sequence will be studied.
 
 ### 1. Multiple sequence alignment
 
+Both nucleotide and amino acid sequences from our MAG and the selected
+reference genome will be aligned with MAFFT (Multiple Alignment using
+Fast Fourier Transform). The resulting file containing the alignment of
+both sequences will be visualized with Jalview.
+
 ### 2. Pairwise sequence alignment
+
+In the same way as in the previous step, the pairwise alignment socre
+for both nucleotide and amino acid sequences from our MAG and the
+reference genome will be assessed using SMS (Sequence Manipulation
+Suite) from *bioinformatics.org*. This parameter takes into account the
+number of matches (i.e. A-A) and missmatches (i.e. A-T) between both
+sequences (as well as the possible gaps present in one of them) and
+computes them in order to give a value referring to their alignment
+level.
+
+NO ENTENC LO DE LA ÚLTIMA PART DE LES SCORING MATRIX
 
 ## Practical 8
 
