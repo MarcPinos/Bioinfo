@@ -136,9 +136,10 @@ a further research with the sample.
 
 ### 3. Microbe classification
 
-The genome set will be taxonomically classified using *GTDB*. As an
-output a taxonomical tree will promote the identification of the
-bacterial sepecies present in our sample.
+The genome set will be taxonomically classified using
+[GTDB](https://gtdb.ecogenomic.org/). As an output a taxonomical tree
+will promote the identification of the bacterial sepecies present in our
+sample.
 
 ### 4. GTDB: genome taxonomy data base
 
@@ -266,13 +267,14 @@ knitr::include_graphics(here::here("GC_content_Pr4.png"))
 
 We opted to focus on bin03 due to its exceptional completeness level
 (100%) and minimal contamination (0.91%). Following the annotation of
-our MAG and subsequent genome set generation, we employed GTDB
-classification to determine the bacterial strain origin of this genome.
-The outcomes are presented in *Figure 5*, indicating a match between
-bin03 and *Bifidobacterium dentium* with an Average Nucleotide Identity
-(ANI) score of 98.73, as illustrated in the phylogenetic tree displayed
-in *Figure 6*. With a gANI value higher than 95%, we can infer that our
-MAG originates from *Bifidobacterium dentium*.
+our MAG and subsequent genome set generation, we employed
+[GTDB](https://gtdb.ecogenomic.org/) classification to determine the
+bacterial strain origin of this genome. The outcomes are presented in
+*Figure 5*, indicating a match between bin03 and *Bifidobacterium
+dentium* with an Average Nucleotide Identity (ANI) score of 98.73, as
+illustrated in the phylogenetic tree displayed in *Figure 6*. With a
+gANI value higher than 95%, we can infer that our MAG originates from
+*Bifidobacterium dentium*.
 
 ```{r Figure 5, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "Bacterial Taxonomy"}
 knitr::include_graphics(here::here("especie_que_correspon_pr5.png"))
