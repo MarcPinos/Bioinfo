@@ -213,24 +213,51 @@ sequences (as well as the possible gaps present in one of them) and
 computes them in order to give a value referring to their alignment
 level.
 
-In our case Point accepted mutation (PAM) will be used to score the sequence alignments. PAM measures the amount of evolutionary distance between two amino acid sequences by the construction of PAM matrices. It uses PAM units matrices to determine such distance; for instance, one PAM unit matrix (PAM1 matrix) represents substitution probabilities for sequences that have experienced a single point mutation per 100 amino acids.
+In our case Point accepted mutation (PAM) will be used to score the
+sequence alignments. PAM measures the amount of evolutionary distance
+between two amino acid sequences by the construction of PAM matrices. It
+uses PAM units matrices to determine such distance; for instance, one
+PAM unit matrix (PAM1 matrix) represents substitution probabilities for
+sequences that have experienced a single point mutation per 100 amino
+acids.
 
-It is important to mention that PAM requires proteins which have high similarity with their predecessors. Moreover, PAM250 is frequently used for sequence comparison. 
-
+It is important to mention that PAM requires proteins which have high
+similarity with their predecessors. Moreover, PAM250 is frequently used
+for sequence comparison.
 
 ## [Practical 8: Building a phylogenetic tree]{.underline}
-This last practical included in the project promotes the construction of a phylogenetic tree. A protein will be selected from the MAG's functional categories. Using a tex editor we will add a header of the gene code and protein name for its identification. Afterwards its analysis will begin.
+
+This last practical included in the project promotes the construction of
+a phylogenetic tree. A protein will be selected from the MAG's
+functional categories. Using a tex editor we will add a header of the
+gene code and protein name for its identification. Afterwards its
+analysis will begin.
 
 ### 1. Homology search
-[Protein Blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi) will be used to search for protein sequence homologies with other characterized peptides. Among those, only 20 will be selected (from different species and genus) and downloaded. Such sequences will be stored in the same text file storing our reference protein.  
+
+[Protein Blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi) will be used
+to search for protein sequence homologies with other characterized
+peptides. Among those, only 20 will be selected (from different species
+and genus) and downloaded. Such sequences will be stored in the same
+text file storing our reference protein.
 
 ### 2. Alignment and trimming
-As we did in _Practical 7_ MAFFT will be used to align all our 21 sequences. Then *Jalview* will be used to open the alignment and colour its residues. Observing the alignment some gappy regions might be identified. If so, they must be eliminated by trimming using *Trimal* software. The trimmed output will be also observed in *Jalview*. 
+
+As we did in *Practical 7* MAFFT will be used to align all our 21
+sequences. Then *Jalview* will be used to open the alignment and colour
+its residues. Observing the alignment some gappy regions might be
+identified. If so, they must be eliminated by trimming using *Trimal*
+software. The trimmed output will be also observed in *Jalview*.
 
 ### 3. Tree inference and visualisation
-*IQ-TREE* software will be selected to construct a phylogenetic tree of the sequence aligned and trimmed file. Then, [iTol](https://itol.embl.de/) will be used to visualize and modify the outputted tree. 
 
-All bootstrap values will be selected to be displayed and our reference protein will be highlighted. 
+*IQ-TREE* software will be selected to construct a phylogenetic tree of
+the sequence aligned and trimmed file. Then,
+[iTol](https://itol.embl.de/) will be used to visualize and modify the
+outputted tree.
+
+All bootstrap values will be selected to be displayed and our reference
+protein will be highlighted.
 
 # RESULTS AND DISCUSSION
 
@@ -392,9 +419,17 @@ Figure 14 and more explicitly in Figure 15. Among the 9 previous
 mismatches, it's evident that only 2 involve a non-synonymous mutation
 in our MAG when compared to the reference:
 
--   I73V:
+-   I73V: Considering the non-polar nature of both aminoacids, the
+    substitution of isoleucine with valine involves the removal of only
+    one methyl group. This alteration is unlikely to significantly
+    impact the ultimate functionality of the protein.
 
--   P249S:
+-   P249S: Proline is non-polar, whereas serine is polar. This
+    substitution may result in a change in functionality. Proline, being
+    a rigid aminoacid, inhibits the formation of alpha helices, whereas
+    serine permits the creation of these tertiary structures.
+    Furthermore, serine is commonly phosphorylated, potentially leading
+    to a modification in protein functionality.
 
 Finally, we conducted a pairwise nucleotide sequence alignment (not
 depicted) using the following values: match = 2, mismatch = -1 and gap =
