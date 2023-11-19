@@ -275,7 +275,7 @@ depicted in *Figure 1*. Consequently, a decision was made to forgo
 Trimming procedures, aiming to preserve information from the extremities
 of the short reads.
 
-```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "50%", out.extra='trim={0 0.4cm 0 0.4cm},clip', fig.cap = "Figure 1. Quality check reads scores"}
+```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "50%", out.extra='trim={0 0.4cm 0 0.4cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 1.}. Quality check reads scores"}
 knitr::include_graphics(here::here("Quality_check_reads_Pr4.png"))
 ```
 
@@ -284,7 +284,7 @@ Following genome assembly, seven distinct bins were generated (*Figure
 maximum values, approximating 100%. This indicates the presence of all
 anticipated genes within the Metagenome-Assembled Genomes (MAGs).
 
-```{r Figure 2, echo= FALSE, fig.align = 'center', out.width = "60%", fig.cap = "Figure 2. Bins generated after metagenome assembly"}
+```{r Figure 2, echo= FALSE, fig.align = 'center', out.width = "60%", fig.cap = "\\scriptsize \\textbf{Figure 2.} Bins generated after metagenome assembly"}
 knitr::include_graphics(here::here("output_bins_Pr4.png"))
 ```
 
@@ -301,7 +301,7 @@ approximately 5% of the sequences were identified as being repeated more
 than 10 times. Considering these findings, the GC content of our MAG
 might slightly deviate from the theoretical distribution (*Figure 4*).
 
-```{r Figure 3 and 4, echo= FALSE, fig.align = 'center', out.width = "80%", out.extra='trim={0 2.5cm 0 2.5cm},clip', fig.cap = "Figure 3 and 4. Bins completeness and contamination; GC content in bin 3"}
+```{r Figure 3 and 4, echo= FALSE, fig.align = 'center', out.width = "80%", out.extra='trim={0 2.5cm 0 2.5cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 3 and 4.} Bins completeness and contamination; GC content in bin 3"}
 library(png)
 library(grid)
 library(gridExtra)
@@ -325,11 +325,11 @@ illustrated in the phylogenetic tree displayed in *Figure 6*. With a
 gANI value higher than 95%, we can infer that our MAG originates from
 *Bifidobacterium dentium*.
 
-```{r Figure 5, echo= FALSE, fig.align = 'center', out.width = "90%", out.extra='trim={0 0.5cm 0 0.5cm},clip', fig.cap = "Figure 5. Bacterial Taxonomy classification"}
+```{r Figure 5, echo= FALSE, fig.align = 'center', out.width = "90%", out.extra='trim={0 0.5cm 0 0.5cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 5.} Bacterial Taxonomy classification"}
 knitr::include_graphics(here::here("especie_que_correspon_pr5.png"))
 ```
 
-```{r Figure 6, echo= FALSE, fig.align = 'center', out.width = "60%", out.extra='trim={0 0.5cm 0 0.5cm},clip', fig.cap = "Figure 6. Phylogenetic tree"}
+```{r Figure 6, echo= FALSE, fig.align = 'center', out.width = "60%", out.extra='trim={0 0.5cm 0 0.5cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 6.} Phylogenetic tree"}
 knitr::include_graphics(here::here("arbre_detallat_rodonet_pr5.png"))
 ```
 
@@ -340,11 +340,11 @@ estimate of 98.72% (*Figure 7*), indicating a similarity of 98.72% in
 nucleotide composition between the sequences. The comparison details can
 be visualized in *Figure 8*.
 
-```{r Figure 7, echo= FALSE, fig.align = 'center', out.width = "75%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "Figure 7. ANI distance estimation"}
+```{r Figure 7, echo= FALSE, fig.align = 'center', out.width = "75%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 7.} ANI distance estimation"}
 knitr::include_graphics(here::here("ANI_estimate_ambos_pr5.png"))
 ```
 
-```{r Figure 8, echo= FALSE, fig.align = 'center', out.width = "35%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "Figure 8. fastANI representation"}
+```{r Figure 8, echo= FALSE, fig.align = 'center', out.width = "35%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 8.} fastANI representation"}
 knitr::include_graphics(here::here("rallas_rojas_raras_arribaRef.png"))
 ```
 
@@ -358,7 +358,7 @@ Notably, both genomes exhibit similar genes in most categories, except
 for: a) Stress response, b) Cell wall and capsule, c) RNA metabolism, d)
 Membrane transport, and e) DNA metabolism.
 
-```{r Figure 9, echo= FALSE, fig.align = 'center', out.width = "62%", out.extra='trim={0 0.28cm 0 0.28cm},clip', fig.cap = "Figure 9. Functional categories encoded in MAG (left) and reference (right) genomes"}
+```{r Figure 9, echo= FALSE, fig.align = 'center', out.width = "62%", out.extra='trim={0 0.28cm 0 0.28cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 9.} Functional categories encoded in MAG (left) and reference (right) genomes"}
 knitr::include_graphics(here::here("tablas_genes_izq_bin3.png"))
 ```
 
@@ -368,7 +368,7 @@ reference. In our sample, the count stands at 46 for rRNAs, 6 for tRNAs,
 and 1059 for putative coding genes. These counts are contrasted with
 those of the reference in *Figure 10*.
 
-```{r Figure 10,  echo=FALSE, fig.align = 'center', out.width = "40%", fig.show='hold',fig.cap = "Figure 10. MAG (left) and reference (right) genes graphic"}
+```{r Figure 10,  echo=FALSE, fig.align = 'center', out.width = "35%", fig.show='hold',fig.cap = "\\scriptsize \\textbf{Figure 10.} MAG (left) and reference (right) genes graphic"}
 library("ape")
 library("ggplot2")
 
@@ -403,26 +403,21 @@ ggplot(gene_type_table_mag, aes(x=Class, y=Number,fill=Class)) +
 ggplot(gene_type_table_ref, aes(x=Class, y=Number,fill=Class)) + 
   geom_bar(stat = "identity") 
 ```
-
 ## [Practical 7]{.underline}
 
-The gene selected for alignment with the reference genome is categorized
-within the "Clustering-based subsystems" gene group, known for its
-involvement in Bacterial Cell Division. This gene group encompasses a
-total of 5 coding genes in both our MAG and the reference genome. More
-precisely, the gene IGLBDLCO_01642 found in the MAG and PKGELIAN_01503
-identified in the reference genome share a sequence length of 963 base
-pairs (bp). This sequence encodes a protein comprising 320 aminoacids,
-known as the Cell division protein FtsQ.
+The gene selected is categorized within the "Clustering-based subsystems" gene group, known for its involvement in Bacterial Cell Division. This gene group encompasses a total of 5 coding genes in both our MAG and the reference genome. More precisely, the gene IGLBDLCO_01642 found in the MAG and PKGELIAN_01503 identified in the reference genome share a sequence length of 963 base pairs (bp). This sequence encodes a protein comprising 320 aminoacids,known as the Cell division protein FtsQ.
 
 The multiple nucleotide sequence alignment between the MAG and the
-reference genome is depicted in *Figure 11*, revealing 9 mismatches
-across the 963 bp sequence length. These mismatches are visually
-highlighted in *Figure 12*, displaying a gap in the consensus sequence
-(black box). Notably, the multiple aminoacid alignment sequences is
-showcased in *Figure 13* and more explicitly in *Figure 14*. Among the 9
-previous mismatches, it's evident that only 2 involve a non-synonymous
-mutation in our MAG when compared to the reference:
+reference genome is depicted in *Supplementary Info. 1*, revealing 9 mismatches across the 963 bp sequence length. These mismatches are visually
+highlighted in *Figure 11*, displaying a gap in the consensus sequence
+(black box).
+
+```{r Figure 11, echo= FALSE, fig.align = 'center', out.width = "90%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 11.} Missmatches between FstQ reference (up) and MAG (down) nucleotide sequence."}
+knitr::include_graphics(here::here("nt_GAP_alignmsequence.png"))
+```
+
+Notably, the multiple aminoacid alignment sequences is showcased in
+*Supplementary info 2* and more explicitly in *Figure 12*. Among the 9 previous mismatches, it's evident that only 2 involve a non-synonymous mutation in our MAG when compared to the reference:
 
 -   I73V: Considering the non-polar nature of both aminoacids, the
     substitution of isoleucine with valine is unlikely to significantly
@@ -430,6 +425,11 @@ mutation in our MAG when compared to the reference:
 
 -   P249S: Proline is non-polar, whereas serine is polar. This
     substitution may result in a change in functionality.
+
+```{r Figure 12, echo= FALSE, fig.align = 'center', out.width = "100%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 12.} Non-synonymous mutatuions between FstQ MAG (up) and reference (down) aminoacid sequence."}
+knitr::include_graphics(here::here("aa_MISSMATCH_alignmseq.png"))
+```
+
 
 Finally, we conducted a pairwise nucleotide sequence alignment (not
 depicted) using the following values: match = 2, mismatch = -1 and gap =
@@ -449,3 +449,21 @@ suggests that our sample likely originates from *Bifidobacterium*
 # CONCLUSIONS
 
 # REFERENCES
+
+
+
+
+
+
+
+
+
+# SUPPLEMENTARY INFO
+
+```{r Supp. 1, echo= FALSE, fig.align = 'center', out.width = "60%", out.extra='trim={0 0.1cm 0 0.1cm},clip', fig.cap = "\\scriptsize \\textbf{Supplementary Info. 1} FstQ nucleotide sequence alignment between MAG (up) and reference (down)."}
+knitr::include_graphics(here::here("pairwase_nt_alignm.png"))
+```
+
+```{r Supp. 2, echo= FALSE, fig.align = 'center', out.width = "60%", out.extra='trim={0 0.1cm 0 0.1cm},clip', fig.cap = "\\scriptsize \\textbf{Supplementary Info. 2} FstQ nucleotide sequence alignment between MAG (up) and reference (down)."}
+knitr::include_graphics(here::here("pairwase_aa_alignm.png"))
+```
