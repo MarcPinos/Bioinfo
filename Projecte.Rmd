@@ -2,6 +2,7 @@
 title: "METAGENOMICS PROJECT"
 author: "Daniel Martín, Guillem Miró, Marc Pinós"
 date: "2023-11-23"
+geometry: "left=2.5cm,right=2.5cm,top=2cm,bottom=2cm"
 output:
   pdf_document:
 header-includes:
@@ -10,6 +11,7 @@ header-includes:
 editor_options: 
   markdown: 
     wrap: 72
+   
 ---
 
 # INTRODUCTION
@@ -54,16 +56,12 @@ enable the detection of possible noise, unwanted/impure fragments,
 sequencing mistakes, and base distribution rates.
 
 *Parameters:*
+-Basic Statistics                 -Per base sequence quality
+-Per tile sequence quality        -Per sequence quality scores
+-Per base sequence content        -Per sequence GC content
+-Per base N content               -Sequence length distribution
+-Sequence duplication levels
 
--   Basic Statistics
--   Per base sequence quality
--   Per tile sequence quality
--   Per sequence quality scores
--   Per base sequence content
--   Per sequence GC content
--   Per base N content
--   Sequence length distribution
--   Sequence duplication levels
 
 ### 2. Trimming
 
@@ -85,14 +83,12 @@ compensations of quality compared to the raw analysis.
 If all the previously-identified mistakes are compensated by the
 trimming, the analysis will be continued.
 
-### 4. Assemble Read
+### 4. Assemble Read and binning
 
 All the reads will be stored into continuous sequences. In our case,
 *MEGAHIT* will be used. Compared to other softwares it is believed to be
 faster. All the reads will be conjugated to create long DNA fragments,
 known as *contigs* (assemble continuous genome fragments).
-
-### 5. Binning
 
 Previous *contigs* will be grouped in several *bins*. The term bin
 corresponds to a putative population genomes created by a selection of
@@ -100,7 +96,7 @@ properties, such as codon usage, genome related statistics, GC
 proportion, read length, among other parameters. The analysis will be
 performed using *MaxBin2*.
 
-### 6. Bin quality control
+### 5. Bin quality control
 
 Finally, all bins created will be processed under a quality control. It
 will provide an estimate of genome completeness and contamination by
@@ -133,25 +129,21 @@ analysis. *PROKKA* software will be used to annotate the sample genome
 (placed in the bin) in order to identify several pieces or regions prone
 to be compared.
 
-### 2. Genome set
+### 2. Genome set and microbe classification
 
-Selecting latter annotated genome, we will create a genome set, enabilg
-a further research with the sample.
-
-### 3. Microbe classification
-
-The genome set will be taxonomically classified using
+Selecting latter annotated genome, we will create a genome set, enabling
+a further research with the sample. It will be taxonomically classified using
 [GTDB](https://gtdb.ecogenomic.org/). As an output a taxonomical tree
 will promote the identification of the bacterial sepecies present in our
 sample.
 
-### 4. GTDB: genome taxonomy data base
+### 3. GTDB: genome taxonomy data base
 
 [GTDB](https://gtdb.ecogenomic.org/) will be used to download the
 *Genebank assembly accession* of out bacteria and acquire a FASTA
 reference sequence.
 
-### 5. ANI computation
+### 4. ANI computation
 
 Latter FASTA sequence (type strain genome) and the annotated genome
 (Meta genome assembled genome) from step 1 will be compared using
@@ -447,9 +439,23 @@ suggests that our sample likely originates from *Bifidobacterium*
 ## [Practical 8]{.underline}
 
 # CONCLUSIONS
+Having analyzed our sample throughout all 5 practicals, we can set a series of conclusions from it.
+
+First, in practical 4 our sequence was first computed and examined in order to elucidate its quality and possible compilation to an integrated genome. Its quality was believed to be quite high, as many of the reads presented such trait. Therefore, trimming was unnecessary and could be directly assembled. Several contigs were created which enabled the composition of 7 bins. Among those, only the third fulfilled both completeness and contamination requirements.
+
+Then, using the chosen bin, and comparing it to a reference genome we could identify the sample procedence. The whole genome assembly was identified as *Bifidobacterium dentium*. *Bifidobacterium* is a genus of gram-positive, non motile, anaerobic bacteria. They are mainly known as inhabitants of the gastrointestinal tract in mammals, although some strains have been isolated in both vaginal and oral microbiota. Their establishment in the human intestine is believed to be linked to beneficial health effects, such as immune development, neuromodulation, and microbiotal homeostasis. In particular, *Bifidobacterium dentium* is found in both intestinal and oral environments, and has been related to goblet cell maturation, serotonin production, and GABA production, regulating the gut-brain-axis. 
+
+Afterwards, the genome was further examined by studying its functional categories. It presented a wide variety of physiological functions, which were coded in several identified genes. 
+
 
 # REFERENCES
 
+1. GTDB - Genome Taxonomy Database [Internet]. [cited 2023 Nov]. Available from: https://gtdb.ecogenomic.org/
+2. Letunic I, Bork P. Interactive Tree Of Life (iTOL) v5: an online tool for phylogenetic tree display and annotation. Nucleic Acids Research. 2021 Jul 2;49(W1):W293–6. 
+3. Waterhouse AM, Procter JB, Martin DMA, Clamp M, Barton GJ. Jalview Version 2—a multiple sequence alignment editor and analysis workbench. Bioinformatics. 2009 May 1;25(9):1189–91. 
+4. Katoh K, Rozewicki J, Yamada KD. MAFFT online service: multiple sequence alignment, interactive sequence choice and visualization. Briefings in Bioinformatics. 2019 Jul 19;20(4):1160–6. 
+5. Point accepted mutation. In: Wikipedia [Internet]. 2023 [cited 2023 Nov]. Available from: https://en.wikipedia.org/w/index.php?title=Point_accepted_mutation&oldid=1184343745
+6. KBase [Internet]. [cited 2023 Nov]. Welcome to KBase Predictive Biology. Available from: https://www.kbase.us/
 
 
 
@@ -457,13 +463,11 @@ suggests that our sample likely originates from *Bifidobacterium*
 
 
 
-
+\newpage
 # SUPPLEMENTARY INFO
-
-```{r Supp. 1, echo= FALSE, fig.align = 'center', out.width = "60%", out.extra='trim={0 0.1cm 0 0.1cm},clip', fig.cap = "\\scriptsize \\textbf{Supplementary Info. 1} FstQ nucleotide sequence alignment between MAG (up) and reference (down)."}
+```{r Supp. 1, echo= FALSE, fig.align = 'center', out.width = "45%", out.extra='trim={0 0.1cm 0 0.1cm},clip', fig.cap = "\\scriptsize \\textbf{Supplementary Info. 1} FstQ nucleotide sequence alignment between MAG (up) and reference (down)."}
 knitr::include_graphics(here::here("pairwase_nt_alignm.png"))
 ```
-
-```{r Supp. 2, echo= FALSE, fig.align = 'center', out.width = "60%", out.extra='trim={0 0.1cm 0 0.1cm},clip', fig.cap = "\\scriptsize \\textbf{Supplementary Info. 2} FstQ nucleotide sequence alignment between MAG (up) and reference (down)."}
+```{r Supp. 2, echo= FALSE, fig.align = 'center', out.width = "45%", out.extra='trim={0 0.1cm 0 0.1cm},clip', fig.cap = "\\scriptsize \\textbf{Supplementary Info. 2} FstQ amino acid sequence alignment between MAG (up) and reference (down)."}
 knitr::include_graphics(here::here("pairwase_aa_alignm.png"))
 ```
