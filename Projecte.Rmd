@@ -2,7 +2,11 @@
 title: "METAGENOMICS PROJECT"
 author: "Daniel Martín, Guillem Miró, Marc Pinós"
 date: "2023-11-23"
-output: "pdf_document"
+output:
+  pdf_document:
+header-includes:
+- \usepackage{caption}
+- \captionsetup[figure]{labelformat=empty}
 editor_options: 
   markdown: 
     wrap: 72
@@ -271,7 +275,7 @@ depicted in *Figure 1*. Consequently, a decision was made to forgo
 Trimming procedures, aiming to preserve information from the extremities
 of the short reads.
 
-```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "50%", out.extra='trim={0 0.8cm 0 0.8cm},clip', fig.cap = "Quality check reads"}
+```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "50%", out.extra='trim={0 0.4cm 0 0.4cm},clip', fig.cap = "Figure 1. Quality check reads scores"}
 knitr::include_graphics(here::here("Quality_check_reads_Pr4.png"))
 ```
 
@@ -280,10 +284,9 @@ Following genome assembly, seven distinct bins were generated (*Figure
 maximum values, approximating 100%. This indicates the presence of all
 anticipated genes within the Metagenome-Assembled Genomes (MAGs).
 
-```{r Figure 2, echo= FALSE, fig.align = 'center', out.width = "60%", fig.cap = "Bins generated after genome assembly"}
+```{r Figure 2, echo= FALSE, fig.align = 'center', out.width = "60%", fig.cap = "Figure 2. Bins generated after metagenome assembly"}
 knitr::include_graphics(here::here("output_bins_Pr4.png"))
 ```
-
 
 Additionally, these bins demonstrated a contamination level below 1%,
 affirming the appropriateness of the assembly process due to the initial
@@ -298,7 +301,7 @@ approximately 5% of the sequences were identified as being repeated more
 than 10 times. Considering these findings, the GC content of our MAG
 might slightly deviate from the theoretical distribution (*Figure 4*).
 
-```{r Figure 3 and 4, echo= FALSE, fig.align = 'center', out.width = "80%", out.extra='trim={0 2.5cm 0 2.5cm},clip', fig.cap = "Bins completeness and contamination; GC content in bin 3"}
+```{r Figure 3 and 4, echo= FALSE, fig.align = 'center', out.width = "80%", out.extra='trim={0 2.5cm 0 2.5cm},clip', fig.cap = "Figure 3 and 4. Bins completeness and contamination; GC content in bin 3"}
 library(png)
 library(grid)
 library(gridExtra)
@@ -322,11 +325,11 @@ illustrated in the phylogenetic tree displayed in *Figure 6*. With a
 gANI value higher than 95%, we can infer that our MAG originates from
 *Bifidobacterium dentium*.
 
-```{r Figure 5, echo= FALSE, fig.align = 'center', out.width = "90%", out.extra='trim={0 0.5cm 0 0.5cm},clip', fig.cap = "Bacterial Taxonomy"}
+```{r Figure 5, echo= FALSE, fig.align = 'center', out.width = "90%", out.extra='trim={0 0.5cm 0 0.5cm},clip', fig.cap = "Figure 5. Bacterial Taxonomy classification"}
 knitr::include_graphics(here::here("especie_que_correspon_pr5.png"))
 ```
 
-```{r Figure 6, echo= FALSE, fig.align = 'center', out.width = "70%", out.extra='trim={0 0.6cm 0 0.6cm},clip', fig.cap = "Taxonomy tree"}
+```{r Figure 6, echo= FALSE, fig.align = 'center', out.width = "60%", out.extra='trim={0 0.5cm 0 0.5cm},clip', fig.cap = "Figure 6. Phylogenetic tree"}
 knitr::include_graphics(here::here("arbre_detallat_rodonet_pr5.png"))
 ```
 
@@ -337,11 +340,11 @@ estimate of 98.72% (*Figure 7*), indicating a similarity of 98.72% in
 nucleotide composition between the sequences. The comparison details can
 be visualized in *Figure 8*.
 
-```{r Figure 7, echo= FALSE, fig.align = 'center', out.width = "75%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "ANI estimation"}
+```{r Figure 7, echo= FALSE, fig.align = 'center', out.width = "75%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "Figure 7. ANI distance estimation"}
 knitr::include_graphics(here::here("ANI_estimate_ambos_pr5.png"))
 ```
 
-```{r Figure 8, echo= FALSE, fig.align = 'center', out.width = "75%", fig.cap = "fastANI representation"}
+```{r Figure 8, echo= FALSE, fig.align = 'center', out.width = "35%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "Figure 8. fastANI representation"}
 knitr::include_graphics(here::here("rallas_rojas_raras_arribaRef.png"))
 ```
 
@@ -350,18 +353,22 @@ knitr::include_graphics(here::here("rallas_rojas_raras_arribaRef.png"))
 Upon comparing the feature counts between our genome (Bin03) and the
 reference genome, we observed 2216 features in our genome as opposed to
 2137 in the reference genome. Among these features, the functional
-categories encoded in both genomes are depicted in *Figure* *9* and
-*Figure 10*. Notably, both genomes exhibit similar genes in most
-categories, except for: a) Stress response, b) Cell wall and capsule, c)
-RNA metabolism, d) Membrane transport, and e) DNA metabolism.
+categories encoded in both genomes are depicted in *Figure* *9*.
+Notably, both genomes exhibit similar genes in most categories, except
+for: a) Stress response, b) Cell wall and capsule, c) RNA metabolism, d)
+Membrane transport, and e) DNA metabolism.
+
+```{r Figure 9, echo= FALSE, fig.align = 'center', out.width = "62%", out.extra='trim={0 0.28cm 0 0.28cm},clip', fig.cap = "Figure 9. Functional categories encoded in MAG (left) and reference (right) genomes"}
+knitr::include_graphics(here::here("tablas_genes_izq_bin3.png"))
+```
 
 Additionally, it is pertinent to ascertain the counts of tRNAs, rRNAs,
 and hypothetical coding genes present in our MAG compared to the
 reference. In our sample, the count stands at 46 for rRNAs, 6 for tRNAs,
 and 1059 for putative coding genes. These counts are contrasted with
-those of the reference in *Figure 11*.
+those of the reference in *Figure 10*.
 
-```{r MAG,  echo=FALSE, fig.align = 'center', out.width = "50%", fig.cap = "MAG graphic"}
+```{r Figure 10,  echo=FALSE, fig.align = 'center', out.width = "40%", fig.show='hold',fig.cap = "Figure 10. MAG (left) and reference (right) genes graphic"}
 library("ape")
 library("ggplot2")
 
@@ -374,17 +381,9 @@ rRNA <- CDSinfo[grep("rRNA",CDSinfo)]
 tRNA <- CDSinfo[grep("tRNA",CDSinfo)]                            
 hypothetical <- CDSinfo[grep("hypothetical",CDSinfo)]
 
-gene_type_table <- data.frame(c("rRNA","tRNA","hypothetical","other_function"),
+gene_type_table_mag <- data.frame(c("rRNA","tRNA","hypothetical","other_function"),
                                   c(length(rRNA),length(tRNA),length(hypothetical),length(CDSinfo)-length(rRNA)-length(tRNA)-length(hypothetical)))
-colnames(gene_type_table) = c("Class","Number")
-
-ggplot(gene_type_table, aes(x=Class, y=Number,fill=Class)) + 
-  geom_bar(stat = "identity") 
-```
-
-```{r Ref, echo=FALSE, fig.align = 'center', out.width = "50%", fig.cap = "Reference Graphic"}
-library("ape")
-library("ggplot2")
+colnames(gene_type_table_mag) = c("Class","Number")
 
 REF_annotated <-read.delim("Reference.gff", header=F, comment.char="#") 
 REF_annotated.CDS <- REF_annotated[REF_annotated[,3]=="CDS",]
@@ -395,11 +394,13 @@ rRNA <- CDSinfo[grep("rRNA",CDSinfo)]
 tRNA <- CDSinfo[grep("tRNA",CDSinfo)]                            
 hypothetical <- CDSinfo[grep("hypothetical",CDSinfo)]
 
-gene_type_table <- data.frame(c("rRNA","tRNA","hypothetical","other_function"),
+gene_type_table_ref <- data.frame(c("rRNA","tRNA","hypothetical","other_function"),
                                   c(length(rRNA),length(tRNA),length(hypothetical),length(CDSinfo)-length(rRNA)-length(tRNA)-length(hypothetical)))
-colnames(gene_type_table) = c("Class","Number")
+colnames(gene_type_table_ref) = c("Class","Number")
 
-ggplot(gene_type_table, aes(x=Class, y=Number,fill=Class)) + 
+ggplot(gene_type_table_mag, aes(x=Class, y=Number,fill=Class)) + 
+  geom_bar(stat = "identity") 
+ggplot(gene_type_table_ref, aes(x=Class, y=Number,fill=Class)) + 
   geom_bar(stat = "identity") 
 ```
 
@@ -415,25 +416,20 @@ pairs (bp). This sequence encodes a protein comprising 320 aminoacids,
 known as the Cell division protein FtsQ.
 
 The multiple nucleotide sequence alignment between the MAG and the
-reference genome is depicted in Figure 12, revealing 9 mismatches across
-the 963 bp sequence length. These mismatches are visually highlighted in
-Figure 13, displaying a gap in the consensus sequence (black box).
-Notably, the multiple aminoacid alignment sequences is showcased in
-Figure 14 and more explicitly in Figure 15. Among the 9 previous
-mismatches, it's evident that only 2 involve a non-synonymous mutation
-in our MAG when compared to the reference:
+reference genome is depicted in *Figure 11*, revealing 9 mismatches
+across the 963 bp sequence length. These mismatches are visually
+highlighted in *Figure 12*, displaying a gap in the consensus sequence
+(black box). Notably, the multiple aminoacid alignment sequences is
+showcased in *Figure 13* and more explicitly in *Figure 14*. Among the 9
+previous mismatches, it's evident that only 2 involve a non-synonymous
+mutation in our MAG when compared to the reference:
 
 -   I73V: Considering the non-polar nature of both aminoacids, the
-    substitution of isoleucine with valine involves the removal of only
-    one methyl group. This alteration is unlikely to significantly
-    impact the ultimate functionality of the protein.
+    substitution of isoleucine with valine is unlikely to significantly
+    impact the functionality of the protein.
 
 -   P249S: Proline is non-polar, whereas serine is polar. This
-    substitution may result in a change in functionality. Proline, being
-    a rigid aminoacid, inhibits the formation of alpha helices, whereas
-    serine permits the creation of these tertiary structures.
-    Furthermore, serine is commonly phosphorylated, potentially leading
-    to a modification in protein functionality.
+    substitution may result in a change in functionality.
 
 Finally, we conducted a pairwise nucleotide sequence alignment (not
 depicted) using the following values: match = 2, mismatch = -1 and gap =
