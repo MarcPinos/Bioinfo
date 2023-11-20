@@ -11,7 +11,6 @@ header-includes:
 editor_options: 
   markdown: 
     wrap: 72
-   
 ---
 
 # INTRODUCTION
@@ -55,13 +54,10 @@ so as to make en exhaustive report of the reads' quality. This will
 enable the detection of possible noise, unwanted/impure fragments,
 sequencing mistakes, and base distribution rates.
 
-*Parameters:*
--Basic Statistics                 -Per base sequence quality
--Per tile sequence quality        -Per sequence quality scores
--Per base sequence content        -Per sequence GC content
--Per base N content               -Sequence length distribution
--Sequence duplication levels
-
+*Parameters:* a) Basic Statistics, b) Per base sequence quality, c) Per
+tile sequence quality, d) Per sequence quality scores, e) Per base
+sequence content, f) Per sequence GC content, g) Per base N content, h)
+Sequence length distribution, i) Sequence duplication levels.
 
 ### 2. Trimming
 
@@ -132,10 +128,10 @@ to be compared.
 ### 2. Genome set and microbe classification
 
 Selecting latter annotated genome, we will create a genome set, enabling
-a further research with the sample. It will be taxonomically classified using
-[GTDB](https://gtdb.ecogenomic.org/). As an output a taxonomical tree
-will promote the identification of the bacterial sepecies present in our
-sample.
+a further research with the sample. It will be taxonomically classified
+using [GTDB](https://gtdb.ecogenomic.org/). As an output a taxonomical
+tree will promote the identification of the bacterial sepecies present
+in our sample.
 
 ### 3. GTDB: genome taxonomy data base
 
@@ -267,7 +263,7 @@ depicted in *Figure 1*. Consequently, a decision was made to forgo
 Trimming procedures, aiming to preserve information from the extremities
 of the short reads.
 
-```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "50%", out.extra='trim={0 0.4cm 0 0.4cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 1.}. Quality check reads scores"}
+```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "40%", out.extra='trim={0 0.4cm 0 0.4cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 1.}. Quality check reads scores"}
 knitr::include_graphics(here::here("Quality_check_reads_Pr4.png"))
 ```
 
@@ -395,21 +391,32 @@ ggplot(gene_type_table_mag, aes(x=Class, y=Number,fill=Class)) +
 ggplot(gene_type_table_ref, aes(x=Class, y=Number,fill=Class)) + 
   geom_bar(stat = "identity") 
 ```
+
 ## [Practical 7]{.underline}
 
-The gene selected is categorized within the "Clustering-based subsystems" gene group, known for its involvement in Bacterial Cell Division. This gene group encompasses a total of 5 coding genes in both our MAG and the reference genome. More precisely, the gene IGLBDLCO_01642 found in the MAG and PKGELIAN_01503 identified in the reference genome share a sequence length of 963 base pairs (bp). This sequence encodes a protein comprising 320 aminoacids,known as the Cell division protein FtsQ.
+The gene selected is categorized within the "Clustering-based
+subsystems" gene group, known for its involvement in Bacterial Cell
+Division. This gene group encompasses a total of 5 coding genes in both
+our MAG and the reference genome. More precisely, the gene
+IGLBDLCO_01642 found in the MAG and PKGELIAN_01503 identified in the
+reference genome share a sequence length of 963 base pairs (bp). This
+sequence encodes a protein comprising 320 aminoacids,known as the Cell
+division protein FtsQ.
 
 The multiple nucleotide sequence alignment between the MAG and the
-reference genome is depicted in *Supplementary Info. 1*, revealing 9 mismatches across the 963 bp sequence length. These mismatches are visually
-highlighted in *Figure 11*, displaying a gap in the consensus sequence
-(black box).
+reference genome is depicted in *Supplementary Info. 1*, revealing 9
+mismatches across the 963 bp sequence length. These mismatches are
+visually highlighted in *Figure 11*, displaying a gap in the consensus
+sequence (black box).
 
 ```{r Figure 11, echo= FALSE, fig.align = 'center', out.width = "90%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 11.} Missmatches between FstQ reference (up) and MAG (down) nucleotide sequence."}
 knitr::include_graphics(here::here("nt_GAP_alignmsequence.png"))
 ```
 
 Notably, the multiple aminoacid alignment sequences is showcased in
-*Supplementary info 2* and more explicitly in *Figure 12*. Among the 9 previous mismatches, it's evident that only 2 involve a non-synonymous mutation in our MAG when compared to the reference:
+*Supplementary info 2* and more explicitly in *Figure 12*. Among the 9
+previous mismatches, it's evident that only 2 involve a non-synonymous
+mutation in our MAG when compared to the reference:
 
 -   I73V: Considering the non-polar nature of both aminoacids, the
     substitution of isoleucine with valine is unlikely to significantly
@@ -421,7 +428,6 @@ Notably, the multiple aminoacid alignment sequences is showcased in
 ```{r Figure 12, echo= FALSE, fig.align = 'center', out.width = "100%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 12.} Non-synonymous mutatuions between FstQ MAG (up) and reference (down) aminoacid sequence."}
 knitr::include_graphics(here::here("aa_MISSMATCH_alignmseq.png"))
 ```
-
 
 Finally, we conducted a pairwise nucleotide sequence alignment (not
 depicted) using the following values: match = 2, mismatch = -1 and gap =
@@ -439,35 +445,62 @@ suggests that our sample likely originates from *Bifidobacterium*
 ## [Practical 8]{.underline}
 
 # CONCLUSIONS
-Having analyzed our sample throughout all 5 practicals, we can set a series of conclusions from it.
 
-First, in practical 4 our sequence was first computed and examined in order to elucidate its quality and possible compilation to an integrated genome. Its quality was believed to be quite high, as many of the reads presented such trait. Therefore, trimming was unnecessary and could be directly assembled. Several contigs were created which enabled the composition of 7 bins. Among those, only the third fulfilled both completeness and contamination requirements.
+Having analyzed our sample throughout all 5 practicals, we can set a
+series of conclusions from it.
 
-Then, using the chosen bin, and comparing it to a reference genome we could identify the sample procedence. The whole genome assembly was identified as *Bifidobacterium dentium*. *Bifidobacterium* is a genus of gram-positive, non motile, anaerobic bacteria. They are mainly known as inhabitants of the gastrointestinal tract in mammals, although some strains have been isolated in both vaginal and oral microbiota. Their establishment in the human intestine is believed to be linked to beneficial health effects, such as immune development, neuromodulation, and microbiotal homeostasis. In particular, *Bifidobacterium dentium* is found in both intestinal and oral environments, and has been related to goblet cell maturation, serotonin production, and GABA production, regulating the gut-brain-axis. 
+First, in practical 4 our sequence was first computed and examined in
+order to elucidate its quality and possible compilation to an integrated
+genome. Its quality was believed to be quite high, as many of the reads
+presented such trait. Therefore, trimming was unnecessary and could be
+directly assembled. Several contigs were created which enabled the
+composition of 7 bins. Among those, only the third fulfilled both
+completeness and contamination requirements.
 
-Afterwards, the genome was further examined by studying its functional categories. It presented a wide variety of physiological functions, which were coded in several identified genes. 
+Then, using the chosen bin, and comparing it to a reference genome we
+could identify the sample procedence. The whole genome assembly was
+identified as *Bifidobacterium dentium*. *Bifidobacterium* is a genus of
+gram-positive, non motile, anaerobic bacteria. They are mainly known as
+inhabitants of the gastrointestinal tract in mammals, although some
+strains have been isolated in both vaginal and oral microbiota. Their
+establishment in the human intestine is believed to be linked to
+beneficial health effects, such as immune development, neuromodulation,
+and microbiotal homeostasis. In particular, *Bifidobacterium dentium* is
+found in both intestinal and oral environments, and has been related to
+goblet cell maturation, serotonin production, and GABA production,
+regulating the gut-brain-axis.
 
+Afterwards, the genome was further examined by studying its functional
+categories. It presented a wide variety of physiological functions,
+which were coded in several identified genes.
 
 # REFERENCES
 
-1. GTDB - Genome Taxonomy Database [Internet]. [cited 2023 Nov]. Available from: https://gtdb.ecogenomic.org/
-2. Letunic I, Bork P. Interactive Tree Of Life (iTOL) v5: an online tool for phylogenetic tree display and annotation. Nucleic Acids Research. 2021 Jul 2;49(W1):W293–6. 
-3. Waterhouse AM, Procter JB, Martin DMA, Clamp M, Barton GJ. Jalview Version 2—a multiple sequence alignment editor and analysis workbench. Bioinformatics. 2009 May 1;25(9):1189–91. 
-4. Katoh K, Rozewicki J, Yamada KD. MAFFT online service: multiple sequence alignment, interactive sequence choice and visualization. Briefings in Bioinformatics. 2019 Jul 19;20(4):1160–6. 
-5. Point accepted mutation. In: Wikipedia [Internet]. 2023 [cited 2023 Nov]. Available from: https://en.wikipedia.org/w/index.php?title=Point_accepted_mutation&oldid=1184343745
-6. KBase [Internet]. [cited 2023 Nov]. Welcome to KBase Predictive Biology. Available from: https://www.kbase.us/
-
-
-
-
-
-
+1.  GTDB - Genome Taxonomy Database [Internet]. [cited 2023 Nov].
+    Available from: <https://gtdb.ecogenomic.org/>
+2.  Letunic I, Bork P. Interactive Tree Of Life (iTOL) v5: an online
+    tool for phylogenetic tree display and annotation. Nucleic Acids
+    Research. 2021 Jul 2;49(W1):W293--6.
+3.  Waterhouse AM, Procter JB, Martin DMA, Clamp M, Barton GJ. Jalview
+    Version 2---a multiple sequence alignment editor and analysis
+    workbench. Bioinformatics. 2009 May 1;25(9):1189--91.
+4.  Katoh K, Rozewicki J, Yamada KD. MAFFT online service: multiple
+    sequence alignment, interactive sequence choice and visualization.
+    Briefings in Bioinformatics. 2019 Jul 19;20(4):1160--6.
+5.  Point accepted mutation. In: Wikipedia [Internet]. 2023 [cited 2023
+    Nov]. Available from:
+    <https://en.wikipedia.org/w/index.php?title=Point_accepted_mutation&oldid=1184343745>
+6.  KBase [Internet]. [cited 2023 Nov]. Welcome to KBase Predictive
+    Biology. Available from: <https://www.kbase.us/>
 
 \newpage
+
 # SUPPLEMENTARY INFO
+
 ```{r Supp. 1, echo= FALSE, fig.align = 'center', out.width = "45%", out.extra='trim={0 0.1cm 0 0.1cm},clip', fig.cap = "\\scriptsize \\textbf{Supplementary Info. 1} FstQ nucleotide sequence alignment between MAG (up) and reference (down)."}
 knitr::include_graphics(here::here("pairwase_nt_alignm.png"))
 ```
+
 ```{r Supp. 2, echo= FALSE, fig.align = 'center', out.width = "45%", out.extra='trim={0 0.1cm 0 0.1cm},clip', fig.cap = "\\scriptsize \\textbf{Supplementary Info. 2} FstQ amino acid sequence alignment between MAG (up) and reference (down)."}
 knitr::include_graphics(here::here("pairwase_aa_alignm.png"))
 ```
