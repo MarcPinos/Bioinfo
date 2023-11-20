@@ -1,5 +1,5 @@
 ---
-title: "METAGENOMICS PROJECT"
+title: "METAGENOMICS ASSEMBLY PROJECT"
 author: "Daniel Martín, Guillem Miró, Marc Pinós"
 date: "2023-11-23"
 geometry: "left=2.5cm,right=2.5cm,top=2cm,bottom=2cm"
@@ -263,7 +263,7 @@ depicted in *Figure 1*. Consequently, a decision was made to forgo
 Trimming procedures, aiming to preserve information from the extremities
 of the short reads.
 
-```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "40%", out.extra='trim={0 0.4cm 0 0.4cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 1.}. Quality check reads scores"}
+```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "30%", out.extra='trim={0 0.4cm 0 0.4cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 1.}. Quality check reads scores"}
 knitr::include_graphics(here::here("Quality_check_reads_Pr4.png"))
 ```
 
@@ -313,7 +313,7 @@ illustrated in the phylogenetic tree displayed in *Figure 6*. With a
 gANI value higher than 95%, we can infer that our MAG originates from
 *Bifidobacterium dentium*.
 
-```{r Figure 5, echo= FALSE, fig.align = 'center', out.width = "90%", out.extra='trim={0 0.5cm 0 0.5cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 5.} Bacterial Taxonomy classification"}
+```{r Figure 5, echo= FALSE, fig.align = 'center', out.width = "100%", out.extra='trim={0 0.35cm 0 0.35cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 5.} Bacterial Taxonomy classification"}
 knitr::include_graphics(here::here("especie_que_correspon_pr5.png"))
 ```
 
@@ -328,11 +328,11 @@ estimate of 98.72% (*Figure 7*), indicating a similarity of 98.72% in
 nucleotide composition between the sequences. The comparison details can
 be visualized in *Figure 8*.
 
-```{r Figure 7, echo= FALSE, fig.align = 'center', out.width = "75%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 7.} ANI distance estimation"}
+```{r Figure 7, echo= FALSE, fig.align = 'center', out.width = "90%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 7.} ANI distance estimation"}
 knitr::include_graphics(here::here("ANI_estimate_ambos_pr5.png"))
 ```
 
-```{r Figure 8, echo= FALSE, fig.align = 'center', out.width = "35%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 8.} fastANI representation"}
+```{r Figure 8, echo= FALSE, fig.align = 'center', out.width = "40%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 8.} fastANI representation"}
 knitr::include_graphics(here::here("rallas_rojas_raras_arribaRef.png"))
 ```
 
@@ -346,7 +346,7 @@ Notably, both genomes exhibit similar genes in most categories, except
 for: a) Stress response, b) Cell wall and capsule, c) RNA metabolism, d)
 Membrane transport, and e) DNA metabolism.
 
-```{r Figure 9, echo= FALSE, fig.align = 'center', out.width = "62%", out.extra='trim={0 0.28cm 0 0.28cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 9.} Functional categories encoded in MAG (left) and reference (right) genomes"}
+```{r Figure 9, echo= FALSE, fig.align = 'center', out.width = "55%", out.extra='trim={0 0.28cm 0 0.28cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 9.} Functional categories encoded in MAG (left) and reference (right) genomes"}
 knitr::include_graphics(here::here("tablas_genes_izq_bin3.png"))
 ```
 
@@ -356,7 +356,7 @@ reference. In our sample, the count stands at 46 for rRNAs, 6 for tRNAs,
 and 1059 for putative coding genes. These counts are contrasted with
 those of the reference in *Figure 10*.
 
-```{r Figure 10,  echo=FALSE, fig.align = 'center', out.width = "35%", fig.show='hold',fig.cap = "\\scriptsize \\textbf{Figure 10.} MAG (left) and reference (right) genes graphic"}
+```{r Figure 10,  echo=FALSE, fig.align = 'center', out.width = "30%", fig.show='hold',fig.cap = "\\scriptsize \\textbf{Figure 10.} MAG (left) and reference (right) genes graphic"}
 library("ape")
 library("ggplot2")
 
@@ -407,11 +407,13 @@ The multiple nucleotide sequence alignment between the MAG and the
 reference genome is depicted in *Supplementary Info. 1*, revealing 9
 mismatches across the 963 bp sequence length. These mismatches are
 visually highlighted in *Figure 11*, displaying a gap in the consensus
-sequence (black box).
+sequence (black box). \vspace{20pt}
 
-```{r Figure 11, echo= FALSE, fig.align = 'center', out.width = "90%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 11.} Missmatches between FstQ reference (up) and MAG (down) nucleotide sequence."}
+```{r Figure 11, echo= FALSE, fig.align = 'center', out.width = "100%", out.extra='trim={0 0.1cm 0 0.1cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 11.} Missmatches between FstQ reference (up) and MAG (down) nucleotide sequence."}
 knitr::include_graphics(here::here("nt_GAP_alignmsequence.png"))
 ```
+
+\vspace{70pt}
 
 Notably, the multiple aminoacid alignment sequences is showcased in
 *Supplementary info 2* and more explicitly in *Figure 12*. Among the 9
@@ -444,35 +446,62 @@ suggests that our sample likely originates from *Bifidobacterium*
 
 ## [Practical 8]{.underline}
 
+Following the identification of 20 homologous sequences corresponding to
+our FstQ sequence from *B. dentium*, a multiple sequence alignment was
+conducted and subsequently refined by removing regions containing gaps
+within our sequences. The resulting trimmed output is depicted in
+*Figure 13*.
+
+```{r Figure 13, echo= FALSE, fig.align = 'center', out.width = "100%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 13.} Multiple FstQ sequence alignment after trimming gappy regions."}
+knitr::include_graphics(here::here("protein_multialign.png"))
+```
+
+Ultimately, a phylogenetic tree encompassing these 21 sequences
+(comprising 20 from BLAST results along with our sequence) has been
+generated, as displayed in *Figure 14*. Notably, our FstQ sequence
+demonstrates its closest relation to the reference FstQ sequence sourced
+from *B. dentium* (WP 003838091.1), highlighting its affiliation with
+this particular bacterium rather than with other type strains included
+in the alignment.
+
+```{r Figure 14, echo= FALSE, fig.align = 'center', out.width = "60%", out.extra='trim={0 0.2cm 0 0.2cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 14.} Phylogenetic tree of the 21 aligned FtsQ sequences from different type strains."}
+knitr::include_graphics(here::here("protein_tree.png"))
+```
+
+\vspace{50pt}
+
 # CONCLUSIONS
 
-Having analyzed our sample throughout all 5 practicals, we can set a
-series of conclusions from it.
+After conducting a comprehensive analysis across all five practical
+experiments, a series of conclusions have been derived from our sample.
 
-First, in practical 4 our sequence was first computed and examined in
-order to elucidate its quality and possible compilation to an integrated
-genome. Its quality was believed to be quite high, as many of the reads
-presented such trait. Therefore, trimming was unnecessary and could be
-directly assembled. Several contigs were created which enabled the
-composition of 7 bins. Among those, only the third fulfilled both
-completeness and contamination requirements.
+Initially, in practical 4, our sequence underwent computation and
+scrutiny to assess its quality and potential integration into a cohesive
+genome. High quality was observed in numerous reads, negating the
+necessity for trimming and allowing for direct assembly. This led to the
+creation of several contigs, resulting in the formation of 7 bins. Among
+these bins, only the third met both completeness and contamination
+criteria.
 
-Then, using the chosen bin, and comparing it to a reference genome we
-could identify the sample procedence. The whole genome assembly was
-identified as *Bifidobacterium dentium*. *Bifidobacterium* is a genus of
-gram-positive, non motile, anaerobic bacteria. They are mainly known as
-inhabitants of the gastrointestinal tract in mammals, although some
-strains have been isolated in both vaginal and oral microbiota. Their
-establishment in the human intestine is believed to be linked to
-beneficial health effects, such as immune development, neuromodulation,
-and microbiotal homeostasis. In particular, *Bifidobacterium dentium* is
-found in both intestinal and oral environments, and has been related to
-goblet cell maturation, serotonin production, and GABA production,
-regulating the gut-brain-axis.
+Subsequently, utilizing the selected bin and comparing it to a reference
+genome facilitated the identification of the sample's origin. The whole
+genome assembly was confirmed as belonging to *Bifidobacterium dentium*.
+*Bifidobacterium*, a genus of gram-positive, non-motile, anaerobic
+bacteria, predominantly resides in the gastrointestinal tract of
+mammals, although certain strains have been isolated from both vaginal
+and oral microbiota. Their colonization in the human intestine is
+associated with advantageous health effects, including immune system
+development, neuromodulation, and microbiotal equilibrium. Notably,
+*Bifidobacterium dentium* inhabits both intestinal and oral environments
+and has been linked to goblet cell maturation, serotonin, and GABA
+production, thereby regulating the gut-brain-axis.
 
-Afterwards, the genome was further examined by studying its functional
-categories. It presented a wide variety of physiological functions,
-which were coded in several identified genes.
+Subsequent examination of the genome revealed a diverse array of
+physiological functions categorized across several identified genes.
+Finally, to confirm the origin of our sample as *B.* *dentium*, a
+comparative analysis of a protein sequence encoded by our genome was
+performed against a reference sequence, validating the bacterial
+strain's identity.
 
 # REFERENCES
 
