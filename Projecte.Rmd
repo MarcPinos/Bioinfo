@@ -22,7 +22,7 @@ as, genetic functionality, genotype, phenotype, and inheritance among
 others.
 
 In this project a metagenomic analysis will be performed using an
-initial sequenced data set of an unknown bacterial species (originary from fecal samples) as reference.
+initial sequenced data set of an unknown bacterial species (originally from fecal samples) as reference.
 By performing an exhaustive methodology, latter sequence will be sorted
 out in order to identify its origin and produce several analysis.
 
