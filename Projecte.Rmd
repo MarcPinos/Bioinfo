@@ -22,7 +22,7 @@ as, genetic functionality, genotype, phenotype, and inheritance among
 others.
 
 In this project a metagenomic analysis will be performed using an
-initial sequenced data set of an unknown bacterial species (originally from fecal samples) as reference.
+initial sequenced data set (ARG_B16) of an unknown bacterial species (originally from fecal samples) as reference.
 By performing an exhaustive methodology, latter sequence will be sorted
 out in order to identify its origin and produce several analysis.
 
@@ -105,7 +105,7 @@ to \>90% completeness and \<5% of contamination.*
 ## [Practical 5: Bacterial genome identification]{.underline}
 
 Once all quality reads are selected, the analysis must begin. In
-particular, a taxonomic identification of out unknown sample will be
+particular, a taxonomic identification of our unknown sample will be
 performed.
 
 In the case of bacteria, as they do not reproduce sexually, species
@@ -279,7 +279,7 @@ knitr::include_graphics(here::here("output_bins_Pr4.png"))
 Additionally, these bins demonstrated a contamination level below 1%,
 affirming the appropriateness of the assembly process due to the initial
 high-quality short reads, enabling seamless assembly (*Figure 3*). Thus,
-bins 01, 03, and 04 can be considered of high quality, attaining \>50%
+bins 01, 03, and 04 can be considered of high quality, attaining \>90%
 completeness and \<5% contamination.
 
 Upon analyzing the distribution of the short reads utilized for MAG
@@ -459,8 +459,8 @@ knitr::include_graphics(here::here("protein_multialign.png"))
 Ultimately, a phylogenetic tree encompassing these 21 sequences
 (comprising 20 from BLAST results along with our sequence) has been
 generated, as displayed in *Figure 14*. Notably, our FstQ sequence
-demonstrates its closest relation to the reference FstQ sequence sourced
-from *B. dentium* (WP 003838091.1), highlighting its affiliation with
+demonstrates its closest relation to the reference FstQ sequences sourced
+from *B. dentium* (WP 003838091.1 and WP 270273946.1), highlighting its affiliation with
 this particular bacterium rather than with other type strains included
 in the alignment.
 
