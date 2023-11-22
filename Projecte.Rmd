@@ -263,7 +263,7 @@ depicted in *Figure 1*. Consequently, a decision was made to forgo
 Trimming procedures, aiming to preserve information from the extremities
 of the short reads.
 
-```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "30%", out.extra='trim={0 0.4cm 0 0.4cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 1.}. Quality check reads scores"}
+```{r Figure 1, echo= FALSE, fig.align = 'center', out.width = "30%", out.extra='trim={0 0.4cm 0 0.4cm},clip', fig.cap = "\\scriptsize \\textbf{Figure 1.} Quality check reads scores"}
 knitr::include_graphics(here::here("Quality_check_reads_Pr4.png"))
 ```
 
